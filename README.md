@@ -14,6 +14,6 @@ Application Zone - RT Middleware
 <img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware.png" alt="IoT RT Middleware Application"/>
 [![Screenshot](https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware_screenshot.png)](https://vimeo.com/180534024)
 
-Devices Zone - Wio Link
+Devices Zone - [Wio Link](https://github.com/Seeed-Studio/Wio_Link)
 ---------------
 <img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Devices.png" alt="IoT Devices"/>
