@@ -7,9 +7,7 @@ System Design
 Application Zone - Home Lights
 ---------------
 <img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights.png" alt="IoT Home Lights Application"/>
-
-<iframe src="https://player.vimeo.com/video/181041146" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/181041146">Home Lights IoT</a> from <a href="https://vimeo.com/user54588891">Bartosz Rachwal</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+[![ScreenShot](https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights_screenshot.png)](https://vimeo.com/user54588891)
 
 Application Zone - RT Middleware
 ---------------
