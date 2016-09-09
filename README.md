@@ -10,9 +10,9 @@ The system architecture is composed of three main layers: presentation, abstract
 The interaction between the end user and the system is posible due to the logic of the presentation layer. Its function is to provide access to services, display data, and process user requests.
 User can interact with the presentation layer through a web page, through the RT Middleware or own custom layer using HTTP or MQTT.
 
-Core logic of the system is implemented in the management abstraction layer. It is responsible for interpreting requests from end user or presentation layer, storing the abstract system state and coordination physical devices management layer.
+Core logic of the system is implemented in the management abstraction layer. It is responsible for interpretation of requests from end user or presentation layer, storing the abstract system state and coordination physical devices management layer.
 
-Device management layer has device register device, accepts requests to perform a specific action by the edge device controller. 
+Device management layer has device register, accepts requests to perform a specific action by the edge device controller. 
 Edge device controller is a module responsible for direct setting and getting values on a physical device.
 
 Connecting, Control, Monitoring and Automation
