@@ -12,7 +12,7 @@ User can interact with the presentation layer through a web page, through the RT
 
 Core logic of the system is implemented in the management abstraction layer. It is responsible for interpretation of requests from end user or presentation layer, storing the abstract system state and coordination physical devices management layer.
 
-Device management layer has device register, accepts requests to perform a specific action by the edge device controller. 
+Device management layer contains device register, accepts requests to perform a specific action by the edge device controller. 
 Edge device controller is a module responsible for direct setting and getting values on a physical device.
 
 Connecting, Control, Monitoring and Automation
@@ -22,16 +22,26 @@ Connecting, Control, Monitoring and Automation
 
 Home Lights application
 ---------------
-<img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights.png" alt="IoT Home Lights Application"/>
 [![Screenshot](https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights_screenshot.png)](https://vimeo.com/181041146)
+
+<img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights.png" alt="IoT Home Lights Application"/>
 
 Integration with an inteligent platform - RT Middleware
 ===============
 
 Dominant Color application
 ---------------
-<img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware.png" alt="IoT RT Middleware Application"/>
 [![Screenshot](https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware_screenshot.png)](https://vimeo.com/180534024)
+
+<img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware.png" alt="IoT RT Middleware Application"/>
+
+[RTM Windows Universal Client](https://github.com/rachwal/RTM-Windows-10-Client)
+[RTM iOS Client](https://github.com/rachwal/RTM-iOS-Client)
+[RTM Android Client](https://github.com/rachwal/RTM-Android-Client)
+
+[RT Middleware](http://openrtm.org/openrtm/en/content/projects)
+
+[RTM Tools]
 
 Edge Devices Integration - [Wio Link](https://github.com/Seeed-Studio/Wio_Link) Environment
 ===============
