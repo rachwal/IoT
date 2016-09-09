@@ -35,12 +35,11 @@ Dominant Color application
 
 <img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware.png" alt="IoT RT Middleware Application"/>
 
+[RT Middleware](http://openrtm.org/openrtm/en/content/projects)<br/>
+
 [RTM Windows Universal Client](https://github.com/rachwal/RTM-Windows-10-Client)<br/>
 [RTM iOS Client](https://github.com/rachwal/RTM-iOS-Client)<br/>
 [RTM Android Client](https://github.com/rachwal/RTM-Android-Client)<br/>
-[RT Middleware](http://openrtm.org/openrtm/en/content/projects)<br/>
-
-
 
 Edge Devices Integration - [Wio Link](https://github.com/Seeed-Studio/Wio_Link) Environment
 ===============
