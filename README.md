@@ -22,6 +22,10 @@ Connecting, Control, Monitoring and Automation
 
 Home Lights application
 ---------------
+In the application layer user controlls room lights from an iOS application. 
+Abstraction and device management layers area deployed on single node. 
+Four light sources are controlled by Wio Node boards. 
+
 [![Screenshot](https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights_screenshot.png)](https://vimeo.com/181041146)
 
 <img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights.png" alt="IoT Home Lights Application"/>
@@ -31,6 +35,10 @@ Integration with an inteligent platform - RT Middleware
 
 Dominant Color application
 ---------------
+This application demonstrates a real-time video image analysis required for control of edge devices. 
+Video stream is sent from smartphone and processed by RT Middleware components. 
+A result is transferred to abstraction management layer and current dominanat color of video stream is set to an edge device.
+  
 [![Screenshot](https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware_screenshot.png)](https://vimeo.com/180534024)
 
 <img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_RT_Middleware.png" alt="IoT RT Middleware Application"/>
