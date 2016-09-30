@@ -29,6 +29,8 @@ Four light sources are controlled by Wio Node boards.
 [![Screenshot](https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights_screenshot.png)](https://vimeo.com/181041146)
 
 <img src="https://raw.githubusercontent.com/rachwal/IoT/master/img/IoT_Home_Lights.png" alt="IoT Home Lights Application"/>
+<br/>
+[Home Lights iOS](https://github.com/rachwal/HomeLights-iOS)<br/>
 
 Integration with an inteligent platform - RT Middleware
 ===============
