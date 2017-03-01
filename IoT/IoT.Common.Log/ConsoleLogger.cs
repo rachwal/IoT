@@ -12,7 +12,10 @@ namespace IoT.Common.Log
         {
             if (logLevel <= LogLevel.Debug)
             {
+                var color = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine($"{DateTime.Now} | DEBUG | {message}");
+                Console.ForegroundColor = color;
             }
         }
 
@@ -20,7 +23,10 @@ namespace IoT.Common.Log
         {
             if (logLevel <= LogLevel.Info)
             {
+                var color = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine($"{DateTime.Now} | INFO | {message}");
+                Console.ForegroundColor = color;
             }
         }
 
@@ -28,7 +34,10 @@ namespace IoT.Common.Log
         {
             if (logLevel <= LogLevel.Warn)
             {
-                Console.WriteLine($"{DateTime.Now} | WARN | {message}");
+                var color = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine($"{DateTime.Now} | WARNING | {message}");
+                Console.ForegroundColor = color;
             }
         }
 
@@ -36,7 +45,10 @@ namespace IoT.Common.Log
         {
             if (logLevel <= LogLevel.Error)
             {
+                var color = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{DateTime.Now} | ERROR | {message}");
+                Console.ForegroundColor = color;
             }
         }
 
@@ -44,7 +56,10 @@ namespace IoT.Common.Log
         {
             if (logLevel <= LogLevel.Fatal)
             {
+                var color = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine($"{DateTime.Now} | FATAL | {message}");
+                Console.ForegroundColor = color;
             }
         }
 

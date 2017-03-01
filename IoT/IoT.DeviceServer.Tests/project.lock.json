@@ -2767,7 +2767,7 @@
           "netstandard1.6/IoT.Common.Encryption.dll": {}
         }
       },
-      "IoT.DeviceRegister/1.0.0": {
+      "IoT.DeviceService/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -2775,10 +2775,10 @@
           "NETStandard.Library": "1.6.0"
         },
         "compile": {
-          "netstandard1.6/IoT.DeviceRegister.dll": {}
+          "netstandard1.6/IoT.DeviceService.dll": {}
         },
         "runtime": {
-          "netstandard1.6/IoT.DeviceRegister.dll": {}
+          "netstandard1.6/IoT.DeviceService.dll": {}
         }
       }
     }
@@ -8106,16 +8106,16 @@
       "path": "../IoT.Common.Encryption/project.json",
       "msbuildProject": "../IoT.Common.Encryption/IoT.Common.Encryption.xproj"
     },
-    "IoT.DeviceRegister/1.0.0": {
+    "IoT.DeviceService/1.0.0": {
       "type": "project",
-      "path": "../IoT.DeviceRegister/project.json",
-      "msbuildProject": "../IoT.DeviceRegister/IoT.DeviceRegister.xproj"
+      "path": "../IoT.DeviceService/project.json",
+      "msbuildProject": "../IoT.DeviceService/IoT.DeviceService.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "IoT.Common.Encryption >= 1.0.0-*",
-      "IoT.DeviceRegister >= 1.0.0-*",
+      "IoT.DeviceService >= 1.0.0-*",
       "Moq >= 4.7.1",
       "NETStandard.Library >= 1.6.0",
       "dotnet-test-xunit >= 1.0.0-rc2-192208-24",

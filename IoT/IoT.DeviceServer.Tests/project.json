@@ -6,7 +6,7 @@
     "NETStandard.Library": "1.6.0",
     "dotnet-test-xunit": "1.0.0-rc2-192208-24",
     "xunit": "2.1.0",
-    "IoT.DeviceRegister": "1.0.0-*",
+    "IoT.DeviceService": "1.0.0-*",
     "Moq": "4.7.1",
     "IoT.Common.Encryption": "1.0.0-*"
   },

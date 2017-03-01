@@ -1196,7 +1196,7 @@
           "netstandard1.6/IoT.Common.Log.dll": {}
         }
       },
-      "IoT.DeviceRegister/1.0.0": {
+      "IoT.DeviceService/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -1204,10 +1204,10 @@
           "NETStandard.Library": "1.6.0"
         },
         "compile": {
-          "netstandard1.6/IoT.DeviceRegister.dll": {}
+          "netstandard1.6/IoT.DeviceService.dll": {}
         },
         "runtime": {
-          "netstandard1.6/IoT.DeviceRegister.dll": {}
+          "netstandard1.6/IoT.DeviceService.dll": {}
         }
       },
       "IoT.EdgeDevice.Info/1.0.0": {
@@ -4363,10 +4363,10 @@
       "path": "../IoT.Common.Log/project.json",
       "msbuildProject": "../IoT.Common.Log/IoT.Common.Log.xproj"
     },
-    "IoT.DeviceRegister/1.0.0": {
+    "IoT.DeviceService/1.0.0": {
       "type": "project",
-      "path": "../IoT.DeviceRegister/project.json",
-      "msbuildProject": "../IoT.DeviceRegister/IoT.DeviceRegister.xproj"
+      "path": "../IoT.DeviceService/project.json",
+      "msbuildProject": "../IoT.DeviceService/IoT.DeviceService.xproj"
     },
     "IoT.EdgeDevice.Info/1.0.0": {
       "type": "project",
@@ -4377,7 +4377,7 @@
   "projectFileDependencyGroups": {
     "": [
       "IoT.Common.Log >= 1.0.0-*",
-      "IoT.DeviceRegister >= 1.0.0-*",
+      "IoT.DeviceService >= 1.0.0-*",
       "IoT.EdgeDevice.Info >= 1.0.0-*",
       "NETStandard.Library >= 1.6.0",
       "System.Net.Security >= 4.0.0"

@@ -1,5 +1,6 @@
 ﻿// Copyright (c) 2017. Bartosz Rachwal. The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved.
 
+using System;
 using System.Net;
 using System.Net.Sockets;
 using IoT.DeviceCoordinator;
@@ -30,15 +31,8 @@ namespace IoT.DeviceServer
             while (true)
             {
                 var clientTask = listener.AcceptTcpClientAsync();
-
-                if (clientTask.Result == null)
-                {
-                    continue;
-                }
-
-                var client = clientTask.Result;
-
-                deviceCoordinator.Handle(client);
+                
+                deviceCoordinator.Handle(clientTask.Result);
             }
         }
     }

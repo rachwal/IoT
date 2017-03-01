@@ -1,8 +1,7 @@
 ﻿// Copyright (c) 2017. Bartosz Rachwal. The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved.
 
-using System.Xml.Serialization;
 using IoT.Common.Encryption;
-using IoT.DeviceRegister;
+using IoT.DeviceService;
 using Moq;
 using Xunit;
 
@@ -15,7 +14,7 @@ namespace IoT.DeviceServer.Tests
         {
             //GIVEN
             var hashingAlgorithm = new Mock<IHashAlgorithm>();
-            var register = new DefaultDeviceRegister(hashingAlgorithm.Object);
+            var register = new DefaultDeviceService(hashingAlgorithm.Object);
 
             //WHEN
             var isRegistered = register.IsRegistered("not registered serial", new byte[] {});
@@ -34,7 +33,7 @@ namespace IoT.DeviceServer.Tests
 
             var hashingAlgorithm = new Mock<IHashAlgorithm>();
 
-            var register = new DefaultDeviceRegister(hashingAlgorithm.Object);
+            var register = new DefaultDeviceService(hashingAlgorithm.Object);
             register.Register(testSerial, testKey);
 
             //WHEN
@@ -54,7 +53,7 @@ namespace IoT.DeviceServer.Tests
 
             var hashingAlgorithm = new Mock<IHashAlgorithm>();
 
-            var register = new DefaultDeviceRegister(hashingAlgorithm.Object);
+            var register = new DefaultDeviceService(hashingAlgorithm.Object);
             register.Register(testSerial, testKey);
             register.Unregister(testSerial);
 

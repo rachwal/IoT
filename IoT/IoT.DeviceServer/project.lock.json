@@ -1201,7 +1201,7 @@
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "IoT.Common.Log": "1.0.0",
-          "IoT.DeviceRegister": "1.0.0",
+          "IoT.DeviceService": "1.0.0",
           "IoT.EdgeDevice.Info": "1.0.0",
           "NETStandard.Library": "1.6.0",
           "System.Net.Security": "4.0.0"
@@ -1211,20 +1211,6 @@
         },
         "runtime": {
           "netstandard1.6/IoT.DeviceCoordinator.dll": {}
-        }
-      },
-      "IoT.DeviceRegister/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.6",
-        "dependencies": {
-          "IoT.Common.Encryption": "1.0.0",
-          "NETStandard.Library": "1.6.0"
-        },
-        "compile": {
-          "netstandard1.6/IoT.DeviceRegister.dll": {}
-        },
-        "runtime": {
-          "netstandard1.6/IoT.DeviceRegister.dll": {}
         }
       },
       "IoT.DeviceServer.Configuration/1.0.0": {
@@ -1238,6 +1224,20 @@
         },
         "runtime": {
           "netstandard1.6/IoT.DeviceServer.Configuration.dll": {}
+        }
+      },
+      "IoT.DeviceService/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "IoT.Common.Encryption": "1.0.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/IoT.DeviceService.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/IoT.DeviceService.dll": {}
         }
       },
       "IoT.EdgeDevice.Info/1.0.0": {
@@ -4398,15 +4398,15 @@
       "path": "../IoT.DeviceCoordinator/project.json",
       "msbuildProject": "../IoT.DeviceCoordinator/IoT.DeviceCoordinator.xproj"
     },
-    "IoT.DeviceRegister/1.0.0": {
-      "type": "project",
-      "path": "../IoT.DeviceRegister/project.json",
-      "msbuildProject": "../IoT.DeviceRegister/IoT.DeviceRegister.xproj"
-    },
     "IoT.DeviceServer.Configuration/1.0.0": {
       "type": "project",
       "path": "../IoT.DeviceServer.Configuration/project.json",
       "msbuildProject": "../IoT.DeviceServer.Configuration/IoT.DeviceServer.Configuration.xproj"
+    },
+    "IoT.DeviceService/1.0.0": {
+      "type": "project",
+      "path": "../IoT.DeviceService/project.json",
+      "msbuildProject": "../IoT.DeviceService/IoT.DeviceService.xproj"
     },
     "IoT.EdgeDevice.Info/1.0.0": {
       "type": "project",

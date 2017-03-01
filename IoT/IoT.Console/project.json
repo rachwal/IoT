@@ -8,7 +8,7 @@
     "IoT.Common.Encryption": "1.0.0-*",
     "IoT.Common.Log": "1.0.0-*",
     "IoT.DeviceCoordinator": "1.0.0-*",
-    "IoT.DeviceRegister": "1.0.0-*",
+    "IoT.DeviceService": "1.0.0-*",
     "IoT.DeviceServer": "1.0.0-*",
     "IoT.DeviceServer.Configuration": "1.0.0-*",
     "NETStandard.Library": "1.6.0"

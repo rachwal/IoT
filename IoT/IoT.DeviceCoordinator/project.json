@@ -3,7 +3,7 @@
 
   "dependencies": {
     "IoT.Common.Log": "1.0.0-*",
-    "IoT.DeviceRegister": "1.0.0-*",
+    "IoT.DeviceService": "1.0.0-*",
     "IoT.EdgeDevice.Info": "1.0.0-*",
     "NETStandard.Library": "1.6.0",
     "System.Net.Security": "4.0.0"

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using IoT.Common.Encryption;
 
-namespace IoT.DeviceRegister
+namespace IoT.DeviceService
 {
-    public class DefaultDeviceRegister : IDeviceRegister
+    public class DefaultDeviceService : IDeviceService
     {
         private readonly Dictionary<string, string> deviceRegister = new Dictionary<string, string>();
         private readonly IHashAlgorithm hashAlgorithm;
 
-        public DefaultDeviceRegister(IHashAlgorithm algorithm)
+        public DefaultDeviceService(IHashAlgorithm algorithm)
         {
             hashAlgorithm = algorithm;
         }
@@ -35,8 +35,26 @@ namespace IoT.DeviceRegister
                 deviceRegister.Remove(serial);
             }
         }
+        
+        public string Encrypt(string serial, byte[] signature, string message)
+        {
+            if (!IsRegistered(serial, signature))
+            {
+                return null;
+            }
+            return string.Empty;
+        }
 
-        public bool IsRegistered(string serial, byte[] signature)
+        public string Decypt(string serial, byte[] signature, string message)
+        {
+            if (!IsRegistered(serial, signature))
+            {
+                return null;
+            }
+            return string.Empty;
+        }
+
+        private bool IsRegistered(string serial, byte[] signature)
         {
             if (!deviceRegister.ContainsKey(serial))
             {
