@@ -5,9 +5,9 @@ using IoT.DeviceService;
 using Moq;
 using Xunit;
 
-namespace IoT.DeviceServer.Tests
+namespace IoT.DeviceService.Tests
 {
-    public class DefaultDeviceRegister_Should
+    public class DefaultDeviceService_Should
     {
         [Fact]
         public void NotTryToCalculateHashWhenSerialWasNotRegistered()
@@ -17,11 +17,11 @@ namespace IoT.DeviceServer.Tests
             var register = new DefaultDeviceService(hashingAlgorithm.Object);
 
             //WHEN
-            var isRegistered = register.IsRegistered("not registered serial", new byte[] {});
+            var message = register.Encrypt("not registered serial", new byte[] {}, "test");
 
             //THEN
             hashingAlgorithm.Verify(m => m.ComputeHash(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
-            Assert.Equal(false, isRegistered);
+            Assert.Equal(null, message);
         }
 
         [Fact]
@@ -37,11 +37,11 @@ namespace IoT.DeviceServer.Tests
             register.Register(testSerial, testKey);
 
             //WHEN
-            var isRegistered = register.IsRegistered(testSerial, new byte[] {});
+            var message = register.Encrypt(testSerial, new byte[] { }, "test");
 
             //THEN
             hashingAlgorithm.Verify(m => m.ComputeHash(testSerial, It.IsAny<string>()), Times.Once);
-            Assert.Equal(true, isRegistered);
+            Assert.Equal(string.Empty, message);
         }
 
         [Fact]
@@ -58,11 +58,11 @@ namespace IoT.DeviceServer.Tests
             register.Unregister(testSerial);
 
             //WHEN
-            var isRegistered = register.IsRegistered(testSerial, new byte[] {});
+            var message = register.Encrypt(testSerial, new byte[] { }, "test");
 
             //THEN
             hashingAlgorithm.Verify(m => m.ComputeHash(testSerial, It.IsAny<string>()), Times.Never);
-            Assert.Equal(false, isRegistered);
+            Assert.Equal(null, message);
         }
     }
 }
