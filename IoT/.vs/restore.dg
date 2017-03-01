@@ -1,9 +1,4 @@
-#:G:\IoT\IoT.Console\IoT.Console.xproj
-G:\IoT\IoT.Console\IoT.Console.xproj|G:\IoT\IoT.Core.Encryption\IoT.Core.Encryption.xproj
-G:\IoT\IoT.Console\IoT.Console.xproj|G:\IoT\IoT.DeviceCoordinator\IoT.DeviceCoordinator.xproj
-G:\IoT\IoT.Console\IoT.Console.xproj|G:\IoT\IoT.DeviceServer\IoT.DeviceServer.xproj
-G:\IoT\IoT.Console\IoT.Console.xproj|G:\IoT\IoT.DeviceServer.Configuration\IoT.DeviceServer.Configuration.xproj
-G:\IoT\IoT.DeviceCoordinator\IoT.DeviceCoordinator.xproj|G:\IoT\IoT.Core.Encryption\IoT.Core.Encryption.xproj
-G:\IoT\IoT.DeviceServer\IoT.DeviceServer.xproj|G:\IoT\IoT.Core.Encryption\IoT.Core.Encryption.xproj
-G:\IoT\IoT.DeviceServer\IoT.DeviceServer.xproj|G:\IoT\IoT.DeviceCoordinator\IoT.DeviceCoordinator.xproj
-G:\IoT\IoT.DeviceServer\IoT.DeviceServer.xproj|G:\IoT\IoT.DeviceServer.Configuration\IoT.DeviceServer.Configuration.xproj
+#:G:\IoT\IoT.DeviceServer.Tests\IoT.DeviceServer.Tests.xproj
+G:\IoT\IoT.DeviceServer.Tests\IoT.DeviceServer.Tests.xproj|G:\IoT\IoT.Common.Encryption\IoT.Common.Encryption.xproj
+G:\IoT\IoT.DeviceServer.Tests\IoT.DeviceServer.Tests.xproj|G:\IoT\IoT.DeviceRegister\IoT.DeviceRegister.xproj
+G:\IoT\IoT.DeviceRegister\IoT.DeviceRegister.xproj|G:\IoT\IoT.Common.Encryption\IoT.Common.Encryption.xproj

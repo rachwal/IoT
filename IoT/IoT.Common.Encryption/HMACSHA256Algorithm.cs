@@ -3,7 +3,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace IoT.Core.Encryption
+namespace IoT.Common.Encryption
 {
     public class HMACSHA256Algorithm : IHashAlgorithm
     {

@@ -37,12 +37,8 @@ namespace IoT.DeviceServer
                 }
 
                 var client = clientTask.Result;
-                var buffer = new byte[1024];
-                var bytesRead = client.GetStream().Read(buffer, 0, buffer.Length);
 
-                deviceCoordinator.Handle(buffer, bytesRead);
-
-                client.GetStream().Dispose();
+                deviceCoordinator.Handle(client);
             }
         }
     }

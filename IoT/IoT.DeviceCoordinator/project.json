@@ -2,8 +2,11 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "IoT.Core.Encryption": "1.0.0-*",
-    "NETStandard.Library": "1.6.0"
+    "IoT.Common.Log": "1.0.0-*",
+    "IoT.DeviceRegister": "1.0.0-*",
+    "IoT.EdgeDevice.Info": "1.0.0-*",
+    "NETStandard.Library": "1.6.0",
+    "System.Net.Security": "4.0.0"
   },
 
   "frameworks": {

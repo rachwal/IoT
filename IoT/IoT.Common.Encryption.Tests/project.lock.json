@@ -2558,17 +2558,17 @@
           "lib/dotnet/xunit.runner.utility.dotnet.dll": {}
         }
       },
-      "IoT.Core.Encryption/1.0.0": {
+      "IoT.Common.Encryption/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "NETStandard.Library": "1.6.0"
         },
         "compile": {
-          "netstandard1.6/IoT.Core.Encryption.dll": {}
+          "netstandard1.6/IoT.Common.Encryption.dll": {}
         },
         "runtime": {
-          "netstandard1.6/IoT.Core.Encryption.dll": {}
+          "netstandard1.6/IoT.Common.Encryption.dll": {}
         }
       }
     }
@@ -7587,15 +7587,15 @@
         "xunit.runner.utility.nuspec"
       ]
     },
-    "IoT.Core.Encryption/1.0.0": {
+    "IoT.Common.Encryption/1.0.0": {
       "type": "project",
-      "path": "../IoT.Core.Encryption/project.json",
-      "msbuildProject": "../IoT.Core.Encryption/IoT.Core.Encryption.xproj"
+      "path": "../IoT.Common.Encryption/project.json",
+      "msbuildProject": "../IoT.Common.Encryption/IoT.Common.Encryption.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "IoT.Core.Encryption >= 1.0.0-*",
+      "IoT.Common.Encryption >= 1.0.0-*",
       "NETStandard.Library >= 1.6.0",
       "dotnet-test-xunit >= 1.0.0-rc2-192208-24",
       "xunit >= 2.1.0"

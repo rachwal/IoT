@@ -3,7 +3,7 @@
 using System.Linq;
 using Xunit;
 
-namespace IoT.Core.Encryption.Tests
+namespace IoT.Common.Encryption.Tests
 {
     public class HMACSHA256Algorithm_Should
     {

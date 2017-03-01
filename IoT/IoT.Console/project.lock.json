@@ -1143,7 +1143,11 @@
           "ref/netstandard1.3/System.Net.Security.dll": {}
         },
         "runtimeTargets": {
-          "runtimes/win/lib/netstandard1.3/_._": {
+          "runtimes/unix/lib/netstandard1.6/System.Net.Security.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.Security.dll": {
             "assetType": "runtime",
             "rid": "win"
           }
@@ -1515,7 +1519,7 @@
           "ref/netstandard1.3/_._": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/netstandard1.3/System.Security.Claims.dll": {}
         }
       },
       "System.Security.Cryptography.Algorithms/4.2.0": {
@@ -1739,7 +1743,7 @@
           "ref/netstandard1.0/System.Security.Principal.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.0/_._": {}
+          "lib/netstandard1.0/System.Security.Principal.dll": {}
         }
       },
       "System.Security.Principal.Windows/4.0.0": {
@@ -1964,7 +1968,7 @@
           "ref/netstandard1.3/System.Threading.ThreadPool.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/netstandard1.3/System.Threading.ThreadPool.dll": {}
         }
       },
       "System.Threading.Timer/4.0.1": {
@@ -2088,25 +2092,41 @@
           "lib/netstandard1.3/_._": {}
         }
       },
-      "IoT.Core.Encryption/1.0.0": {
+      "IoT.Common.Encryption/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "NETStandard.Library": "1.6.0"
         },
         "compile": {
-          "netstandard1.6/IoT.Core.Encryption.dll": {}
+          "netstandard1.6/IoT.Common.Encryption.dll": {}
         },
         "runtime": {
-          "netstandard1.6/IoT.Core.Encryption.dll": {}
+          "netstandard1.6/IoT.Common.Encryption.dll": {}
+        }
+      },
+      "IoT.Common.Log/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/IoT.Common.Log.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/IoT.Common.Log.dll": {}
         }
       },
       "IoT.DeviceCoordinator/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "IoT.Core.Encryption": "1.0.0",
-          "NETStandard.Library": "1.6.0"
+          "IoT.Common.Log": "1.0.0",
+          "IoT.DeviceRegister": "1.0.0",
+          "IoT.EdgeDevice.Info": "1.0.0",
+          "NETStandard.Library": "1.6.0",
+          "System.Net.Security": "4.0.0"
         },
         "compile": {
           "netstandard1.6/IoT.DeviceCoordinator.dll": {}
@@ -2115,11 +2135,25 @@
           "netstandard1.6/IoT.DeviceCoordinator.dll": {}
         }
       },
+      "IoT.DeviceRegister/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "IoT.Common.Encryption": "1.0.0",
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/IoT.DeviceRegister.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/IoT.DeviceRegister.dll": {}
+        }
+      },
       "IoT.DeviceServer/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
-          "IoT.Core.Encryption": "1.0.0",
+          "IoT.Common.Encryption": "1.0.0",
           "IoT.DeviceCoordinator": "1.0.0",
           "IoT.DeviceServer.Configuration": "1.0.0",
           "NETStandard.Library": "1.6.0"
@@ -2142,6 +2176,19 @@
         },
         "runtime": {
           "netstandard1.6/IoT.DeviceServer.Configuration.dll": {}
+        }
+      },
+      "IoT.EdgeDevice.Info/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/IoT.EdgeDevice.Info.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/IoT.EdgeDevice.Info.dll": {}
         }
       }
     }
@@ -6738,15 +6785,25 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "IoT.Core.Encryption/1.0.0": {
+    "IoT.Common.Encryption/1.0.0": {
       "type": "project",
-      "path": "../IoT.Core.Encryption/project.json",
-      "msbuildProject": "../IoT.Core.Encryption/IoT.Core.Encryption.xproj"
+      "path": "../IoT.Common.Encryption/project.json",
+      "msbuildProject": "../IoT.Common.Encryption/IoT.Common.Encryption.xproj"
+    },
+    "IoT.Common.Log/1.0.0": {
+      "type": "project",
+      "path": "../IoT.Common.Log/project.json",
+      "msbuildProject": "../IoT.Common.Log/IoT.Common.Log.xproj"
     },
     "IoT.DeviceCoordinator/1.0.0": {
       "type": "project",
       "path": "../IoT.DeviceCoordinator/project.json",
       "msbuildProject": "../IoT.DeviceCoordinator/IoT.DeviceCoordinator.xproj"
+    },
+    "IoT.DeviceRegister/1.0.0": {
+      "type": "project",
+      "path": "../IoT.DeviceRegister/project.json",
+      "msbuildProject": "../IoT.DeviceRegister/IoT.DeviceRegister.xproj"
     },
     "IoT.DeviceServer/1.0.0": {
       "type": "project",
@@ -6757,12 +6814,19 @@
       "type": "project",
       "path": "../IoT.DeviceServer.Configuration/project.json",
       "msbuildProject": "../IoT.DeviceServer.Configuration/IoT.DeviceServer.Configuration.xproj"
+    },
+    "IoT.EdgeDevice.Info/1.0.0": {
+      "type": "project",
+      "path": "../IoT.EdgeDevice.Info/project.json",
+      "msbuildProject": "../IoT.EdgeDevice.Info/IoT.EdgeDevice.Info.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "IoT.Core.Encryption >= 1.0.0-*",
+      "IoT.Common.Encryption >= 1.0.0-*",
+      "IoT.Common.Log >= 1.0.0-*",
       "IoT.DeviceCoordinator >= 1.0.0-*",
+      "IoT.DeviceRegister >= 1.0.0-*",
       "IoT.DeviceServer >= 1.0.0-*",
       "IoT.DeviceServer.Configuration >= 1.0.0-*",
       "NETStandard.Library >= 1.6.0"

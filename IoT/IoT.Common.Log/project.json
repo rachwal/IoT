@@ -1,10 +1,7 @@
-{
+﻿{
   "version": "1.0.0-*",
 
   "dependencies": {
-    "IoT.Common.Encryption": "1.0.0-*",
-    "IoT.DeviceCoordinator": "1.0.0-*",
-    "IoT.DeviceServer.Configuration": "1.0.0-*",
     "NETStandard.Library": "1.6.0"
   },
 

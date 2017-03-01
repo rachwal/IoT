@@ -7,8 +7,8 @@
 
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>32d85f8c-9c43-402f-aae0-c697a9acb443</ProjectGuid>
-    <RootNamespace>IoT.Core.Encryption</RootNamespace>
+    <ProjectGuid>2de1d39f-38b9-4f58-a106-ab7922d6de22</ProjectGuid>
+    <RootNamespace>IoT.Common.Log</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>

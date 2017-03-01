@@ -5,7 +5,7 @@
   "dependencies": {
     "NETStandard.Library": "1.6.0",
     "dotnet-test-xunit": "1.0.0-rc2-192208-24",
-    "IoT.Core.Encryption": "1.0.0-*",
+    "IoT.Common.Encryption": "1.0.0-*",
     "xunit": "2.1.0"
   },
   "frameworks": {
