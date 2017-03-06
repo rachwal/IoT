@@ -5,10 +5,10 @@
   "dependencies": {
     "NETStandard.Library": "1.6.0",
     "dotnet-test-xunit": "1.0.0-rc2-192208-24",
-    "IoT.Common.Encryption.Service": "1.0.0-*",
-    "IoT.Common.Encryption.Hash": "1.0.0-*",
+    "xunit": "2.1.0",
     "Moq": "4.7.1",
-    "xunit": "2.1.0"
+    "IoT.Device.Info": "1.0.0-*",
+    "IoT.Device.Register": "1.0.0-*"
   },
   "frameworks": {
     "netcoreapp1.0": {

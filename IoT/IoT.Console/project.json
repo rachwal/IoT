@@ -5,12 +5,11 @@
   },
 
   "dependencies": {
-    "IoT.Common.Encryption": "1.0.0-*",
+    "IoT.Common.Encryption.Hash": "1.0.0-*",
     "IoT.Common.Log": "1.0.0-*",
-    "IoT.DeviceCoordinator": "1.0.0-*",
-    "IoT.DeviceService": "1.0.0-*",
-    "IoT.DeviceServer": "1.0.0-*",
-    "IoT.DeviceServer.Configuration": "1.0.0-*",
+    "IoT.Device.Coordinator": "1.0.0-*",
+    "IoT.Device.Server": "1.0.0-*",
+    "IoT.Device.Server.Configuration": "1.0.0-*",
     "NETStandard.Library": "1.6.0"
   },
 
