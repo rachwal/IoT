@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using IoT.Common.Encryption.Hash;
 
@@ -9,7 +10,7 @@ namespace IoT.Device.Register
 {
     public class DefaultDeviceRegister : IDeviceRegister
     {
-        private readonly Dictionary<string, byte[]> deviceRegister = new Dictionary<string, byte[]>();
+        private readonly Dictionary<string, DeviceRegisterEntry> deviceRegister = new Dictionary<string, DeviceRegisterEntry>();
         private readonly IHashAlgorithm hashAlgorithm;
 
         public DefaultDeviceRegister(IHashAlgorithm algorithm)
@@ -19,14 +20,19 @@ namespace IoT.Device.Register
 
         public void Register(string serial, string key)
         {
-            var keyBytes = Encoding.UTF8.GetBytes(key);
-            if (!deviceRegister.ContainsKey(serial))
+            if (deviceRegister.ContainsKey(serial))
             {
-                deviceRegister.Add(serial, keyBytes);
+                Unregister(serial);
+                Register(serial, key);
             }
             else
             {
-                deviceRegister[serial] = keyBytes;
+                var keyBytes = Encoding.ASCII.GetBytes(key);
+                using (var aes = Aes.Create())
+                {
+                    var entry = new DeviceRegisterEntry(keyBytes, aes.IV);
+                    deviceRegister.Add(serial, entry);
+                }
             }
         }
 
@@ -38,13 +44,13 @@ namespace IoT.Device.Register
             }
         }
 
-        public byte[] GetKey(string serial, byte[] signature)
+        public DeviceRegisterEntry GetEntry(string serial, byte[] signature)
         {
             if (!IsRegistered(serial, signature))
             {
                 return null;
             }
-        
+
             return deviceRegister[serial];
         }
 
@@ -55,8 +61,8 @@ namespace IoT.Device.Register
                 return false;
             }
 
-            var key = deviceRegister[serial];
-            var expectedSignature = hashAlgorithm.ComputeHash(serial, key);
+            var entry = deviceRegister[serial];
+            var expectedSignature = hashAlgorithm.ComputeHash(serial, entry.Key);
             var isMatch = expectedSignature.SequenceEqual(signature);
 
             return isMatch;

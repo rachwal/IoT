@@ -4,6 +4,7 @@ namespace IoT.Common.Encryption.Service
 {
     public interface IEncryptionService
     {
-        byte[] Encrypt(string serial, byte[] signature, string message);
+        byte[] GenerateKey(string serial, byte[] signature, byte[] message);
+        byte[] Encrypt(string serial, byte[] signature, byte[] message);
     }
 }

@@ -45,7 +45,7 @@ namespace IoT.Device.Tests
             var deviceInfo = EdgeDeviceInfo.Create(buffer);
 
             //THEN
-            var serial = Encoding.UTF8.GetString(deviceInfo.Serial);
+            var serial = Encoding.ASCII.GetString(deviceInfo.Serial);
             Assert.Equal(expectedFirmwareVersion, deviceInfo.FirmwareVersion);
             Assert.Equal(expectedSerial, serial);
         }
@@ -67,7 +67,7 @@ namespace IoT.Device.Tests
             var deviceInfo = EdgeDeviceInfo.Create(buffer);
 
             //THEN
-            var serial = Encoding.UTF8.GetString(deviceInfo.Serial);
+            var serial = Encoding.ASCII.GetString(deviceInfo.Serial);
             Assert.Equal(expectedFirmwareVersion, deviceInfo.FirmwareVersion);
             Assert.Equal(expectedSerial, serial);
         }

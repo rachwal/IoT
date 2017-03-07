@@ -13,7 +13,7 @@ namespace IoT.Common.Log
             if (logLevel <= LogLevel.Debug)
             {
                 var color = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"{DateTime.Now} | DEBUG | {message}");
                 Console.ForegroundColor = color;
             }

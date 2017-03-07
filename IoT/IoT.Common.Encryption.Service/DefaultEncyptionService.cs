@@ -15,47 +15,64 @@ namespace IoT.Common.Encryption.Service
             deviceRegister = register;
         }
 
-        public byte[] Encrypt(string serial, byte[] signature, string message)
+        public byte[] Encrypt(string serial, byte[] signature, byte[] message)
         {
-            if (!deviceRegister.IsRegistered(serial, signature))
+            var deviceInfo = deviceRegister.GetEntry(serial, signature);
+            if (deviceInfo == null)
             {
-                return null;
+                return new byte[] { };
             }
 
-            var end = "\u00178\n";
-            var input = message + end;
+            return Encrypt(message, deviceInfo);
+        }
+        
+        public byte[] GenerateKey(string serial, byte[] signature, byte[] message)
+        {
+            var deviceInfo = deviceRegister.GetEntry(serial, signature);
+            if (deviceInfo == null)
+            {
+                return new byte[] { };
+            }
+
             var result = new byte[32];
 
+            Array.Copy(deviceInfo.IV, 0, result, 0, 16);
+
+            var encypted = Encrypt(message, deviceInfo);
+          
+            Array.Copy(encypted, 0, result, 16, 16);
+
+            return result;
+        }
+
+        private byte[] Encrypt(byte[] message, DeviceRegisterEntry entry)
+        {
             using (
-                var crypt = new Chilkat.Crypt2
-                {
-                    CryptAlgorithm = "aes",
-                    CipherMode = "cfb",
-                    EncodingMode = "hex",
-                    Charset = "utf-8"
-                })
+               var crypt = new Chilkat.Crypt2
+               {
+                   CryptAlgorithm = "aes",
+                   CipherMode = "cfb",
+                   EncodingMode = "hex",
+                   Charset = "utf-8"
+               })
             {
                 var success = crypt.UnlockComponent("test");
                 if (success != true)
                 {
-                    return null;
+                    return new byte[] { };
                 }
 
-                crypt.RandomizeIV();
+                var ivHex = ByteArrayConvert.ToHexString(entry.IV);
+                crypt.SetEncodedIV(ivHex, "hex");
 
-                Array.Copy(crypt.IV, 0, result, 0, 16);
-
-                var keyBytes = deviceRegister.GetKey(serial, signature);
-
-                var keyHex = ByteArrayConvert.ToHexString(keyBytes);
+                var keyHex = ByteArrayConvert.ToHexString(entry.Key);
                 crypt.SetEncodedKey(keyHex, "hex");
 
-                var encryptedString = crypt.EncryptStringENC(input);
-                var encyptedBytes = StringConvert.ToByteArray(encryptedString);
+                var enc = crypt.EncryptBytesENC(message);
+                var encyptedBytes = StringConvert.ToByteArray(enc);
 
-                Array.Copy(encyptedBytes, 0, result, 16, 16);
+                return encyptedBytes;
             }
-            return result;
         }
     }
 }

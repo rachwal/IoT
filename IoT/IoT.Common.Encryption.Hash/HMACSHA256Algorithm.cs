@@ -14,7 +14,7 @@ namespace IoT.Common.Encryption.Hash
                 return new byte[] {};
             }
 
-            var inputBytes = Encoding.UTF8.GetBytes(input);
+            var inputBytes = Encoding.ASCII.GetBytes(input);
             var hmac = new HMACSHA256(key);
             var result = hmac.ComputeHash(inputBytes);
             return result;

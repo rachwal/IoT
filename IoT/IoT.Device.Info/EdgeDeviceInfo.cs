@@ -31,7 +31,7 @@ namespace IoT.Device.Info
 
             var firmwareInfoBytes = new byte[4];
             Array.Copy(buffer, 0, firmwareInfoBytes, 0, 4);
-            var firmwareInfo = Encoding.UTF8.GetString(firmwareInfoBytes);
+            var firmwareInfo = Encoding.ASCII.GetString(firmwareInfoBytes);
 
             var match = Regex.Match(firmwareInfo, @"@\d\.\d");
             if (match.Success)

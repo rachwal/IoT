@@ -6,7 +6,7 @@ namespace IoT.Device.Register
     {
         void Register(string serial, string key);
         void Unregister(string serial);
-        byte[] GetKey(string serial, byte[] signature);
+        DeviceRegisterEntry GetEntry(string serial, byte[] signature);
         bool IsRegistered(string serial, byte[] signature);
     }
 }
