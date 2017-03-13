@@ -1,9 +1,14 @@
 ﻿// Copyright (c) 2017. Bartosz Rachwal. The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved.
 
+using System;
+using System.Linq;
 using System.Net;
+using System.Net.Sockets;
+using System.Text;
 using IoT.Common.Encryption.Hash;
 using IoT.Common.Encryption.Service;
 using IoT.Common.Log;
+using IoT.Common.Tools;
 using IoT.Device.Coordinator;
 using IoT.Device.Register;
 using IoT.Device.Server;
@@ -15,8 +20,11 @@ namespace IoT.Console
     {
         public static void Main(string[] args)
         {
-            var deviceListenerIpAddress = IPAddress.Parse("192.168.12.3");
-            var deviceServerConfiguration = new DefaultDeviceServerConfiguration(deviceListenerIpAddress, 8000);
+            var host = "192.168.12.3";
+            ushort port = 8000;
+
+            var deviceListenerIpAddress = IPAddress.Parse(host);
+            var deviceServerConfiguration = new DefaultDeviceServerConfiguration(deviceListenerIpAddress, port);
 
             var hashAlgorithm = new HMACSHA256Algorithm();
             var deviceRegister = new DefaultDeviceRegister(hashAlgorithm);
@@ -28,7 +36,38 @@ namespace IoT.Console
             var deviceCoordinator = new DefaultDeviceCoordinator(encryptionService, logger);
             var deviceServer = new EdgeDeviceServer(deviceServerConfiguration, deviceCoordinator);
 
-            deviceServer.Start();
+            deviceServer.StartAsync();
+
+            WaitForExit();
+        }
+
+        private static byte[] FormatMessage(string message)
+        {
+            var mod = (message.Length + 3) % 16;
+            var size = mod == 0 ? message.Length + 3 : message.Length + 3 + 16 - mod;
+            var formatted = new byte[size];
+
+            formatted[message.Length] = 23;
+            formatted[message.Length + 1] = 56;
+            formatted[message.Length + 2] = 10;
+
+            Encoding.UTF8.GetBytes(message, 0, message.Length, formatted, 0);
+            return formatted;
+        }
+
+        private static void WaitForExit()
+        {
+            var run = true;
+            while (run)
+            {
+                var text = System.Console.ReadLine();
+                if (string.IsNullOrEmpty(text))
+                    continue;
+                if (text.Trim().ToLower().Equals("exit"))
+                {
+                    run = false;
+                }
+            }
         }
     }
 }

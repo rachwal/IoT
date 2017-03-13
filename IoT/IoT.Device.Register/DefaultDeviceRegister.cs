@@ -27,7 +27,7 @@ namespace IoT.Device.Register
             }
             else
             {
-                var keyBytes = Encoding.ASCII.GetBytes(key);
+                var keyBytes = Encoding.UTF8.GetBytes(key);
                 using (var aes = Aes.Create())
                 {
                     var entry = new DeviceRegisterEntry(keyBytes, aes.IV);

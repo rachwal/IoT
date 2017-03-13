@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2017. Bartosz Rachwal. The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved.
 
 using System;
+using System.Text;
 using IoT.Common.Tools;
 using IoT.Device.Register;
 
@@ -23,9 +24,9 @@ namespace IoT.Common.Encryption.Service
                 return new byte[] { };
             }
 
-            return Encrypt(message, deviceInfo);
+            return Encrypt(message, deviceInfo.IV, deviceInfo.Key);
         }
-        
+
         public byte[] GenerateKey(string serial, byte[] signature, byte[] message)
         {
             var deviceInfo = deviceRegister.GetEntry(serial, signature);
@@ -38,14 +39,14 @@ namespace IoT.Common.Encryption.Service
 
             Array.Copy(deviceInfo.IV, 0, result, 0, 16);
 
-            var encypted = Encrypt(message, deviceInfo);
-          
+            var encypted = Encrypt(message, deviceInfo.IV, deviceInfo.Key);
+
             Array.Copy(encypted, 0, result, 16, 16);
 
             return result;
         }
 
-        private byte[] Encrypt(byte[] message, DeviceRegisterEntry entry)
+        public byte[] Encrypt(byte[] message, byte[] iv, byte[] key)
         {
             using (
                var crypt = new Chilkat.Crypt2
@@ -62,10 +63,10 @@ namespace IoT.Common.Encryption.Service
                     return new byte[] { };
                 }
 
-                var ivHex = ByteArrayConvert.ToHexString(entry.IV);
+                var ivHex = ByteArrayConvert.ToHexString(iv);
                 crypt.SetEncodedIV(ivHex, "hex");
 
-                var keyHex = ByteArrayConvert.ToHexString(entry.Key);
+                var keyHex = ByteArrayConvert.ToHexString(key);
                 crypt.SetEncodedKey(keyHex, "hex");
 
                 var enc = crypt.EncryptBytesENC(message);

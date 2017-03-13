@@ -6,5 +6,6 @@ namespace IoT.Common.Encryption.Service
     {
         byte[] GenerateKey(string serial, byte[] signature, byte[] message);
         byte[] Encrypt(string serial, byte[] signature, byte[] message);
+        byte[] Encrypt(byte[] message, byte[] iv, byte[] key);
     }
 }

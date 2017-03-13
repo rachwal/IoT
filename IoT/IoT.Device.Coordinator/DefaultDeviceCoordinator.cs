@@ -1,8 +1,6 @@
 // Copyright (c) 2017. Bartosz Rachwal. The National Institute of Advanced Industrial Science and Technology, Japan. All rights reserved.
 
-using System;
 using System.Globalization;
-using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using IoT.Common.Encryption.Service;
@@ -22,46 +20,34 @@ namespace IoT.Device.Coordinator
             log = logger;
         }
 
-        public void Handle(TcpClient client)
+        public void Handle(Socket socket)
         {
-            var stream = client.GetStream();
+            var data = new byte[128];
 
-            var data = Read(stream);
+            socket.Receive(data);
+
+            log.Debug(Encoding.UTF8.GetString(data));
+
             var deviceInfo = EdgeDeviceInfo.Create(data);
             if (deviceInfo == null)
             {
-                stream.Dispose();
                 log.Error("Incorrect device format.");
                 return;
             }
 
-            var serial = Encoding.ASCII.GetString(deviceInfo.Serial);
-            var hello = FormatMessage("hello        ");
-            var key = encryptionService.GenerateKey(serial, deviceInfo.Signagure, hello);
+            var serial = Encoding.UTF8.GetString(deviceInfo.Serial);
 
+            var key = encryptionService.GenerateKey(serial, deviceInfo.Signagure, FormatMessage("hello        "));
             if (key == null)
             {
-                stream.Dispose();
                 log.Warn($"Unknown Device. Serial number: {serial}");
                 return;
             }
 
+            socket.Send(key);
+
             log.Info(
                 $"Accepted device. Serial number: {serial} @Firmware Version: {deviceInfo.FirmwareVersion.ToString("F1", CultureInfo.InvariantCulture)}");
-
-            stream.Write(key, 0, key.Length);
-        }
-
-        private byte[] Read(NetworkStream stream)
-        {
-            if (!stream.CanRead)
-            {
-                return new byte[] { };
-            }
-
-            var buffer = new byte[1024];
-            stream.Read(buffer, 0, buffer.Length);
-            return buffer;
         }
 
         private byte[] FormatMessage(string message)
@@ -74,7 +60,7 @@ namespace IoT.Device.Coordinator
             formatted[message.Length + 1] = 56;
             formatted[message.Length + 2] = 10;
 
-            Encoding.ASCII.GetBytes(message, 0, message.Length, formatted, 0);
+            Encoding.UTF8.GetBytes(message, 0, message.Length, formatted, 0);
             return formatted;
         }
     }

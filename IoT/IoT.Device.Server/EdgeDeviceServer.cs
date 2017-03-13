@@ -20,18 +20,18 @@ namespace IoT.Device.Server
             configuration = serverConfiguration;
         }
 
-        public void Start()
+        public async void StartAsync()
         {
             var endPoint = new IPEndPoint(configuration.Address, configuration.Port);
-            listener = new TcpListener(endPoint);
 
+            listener = new TcpListener(endPoint);
             listener.Start();
 
             while (true)
             {
-                var clientTask = listener.AcceptTcpClientAsync();
+                var socket = await listener.AcceptSocketAsync();
 
-                deviceCoordinator.Handle(clientTask.Result);
+                deviceCoordinator.Handle(socket);
             }
         }
     }

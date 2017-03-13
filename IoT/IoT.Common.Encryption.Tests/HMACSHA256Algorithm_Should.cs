@@ -23,7 +23,7 @@ namespace IoT.Common.Encryption.Tests
         {
             //GIVEN
             const string key = "acd00f2964667ef33f23d3ce0d80117a";
-            var keyBytes = Encoding.ASCII.GetBytes(key);
+            var keyBytes = Encoding.UTF8.GetBytes(key);
             var expectedResult = new byte[] {};
 
             //WHEN
